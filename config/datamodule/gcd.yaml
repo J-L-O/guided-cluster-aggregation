@@ -1,0 +1,15 @@
+_target_: data.gcd.GCDDataModule
+defaults:
+  - transforms@train_transform: gcd_train
+  - transforms@val_transform: gcd_val
+  - _self_
+
+data_dir: ???
+osr_split_dir: ./data/gcd_datasets/ssb_splits
+use_ssb_splits: True
+dataset_name: ???
+prop_train_labels: 0.5
+knn_file: ${lightning_module.knn_file}
+num_neighbors: ${lightning_module.base_k}
+batch_size: ???
+num_workers: 8

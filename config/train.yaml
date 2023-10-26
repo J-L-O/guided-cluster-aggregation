@@ -1,0 +1,14 @@
+defaults:
+  - _self_
+  - datamodule: gcd
+  - lightning_module: gca
+  - trainer: debug
+  - experiment: null
+  - cluster: null
+  - optional slurm_config: ${lightning_module}_${datamodule}_${cluster}
+
+name: ???
+
+hydra:
+  job:
+    chdir: false  # See https://github.com/Lightning-AI/lightning/issues/11300

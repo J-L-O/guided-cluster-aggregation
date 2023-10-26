@@ -1,0 +1,7 @@
+_target_: models.classification.HierarchicalClassificationModel
+backbone_feature_dim: 512
+class_hierarchy: ???
+heads_per_level: ???
+
+backbone:
+  _target_: models.backbones.vit.VITB16Backbone

@@ -1,0 +1,13 @@
+# @package _global_
+
+defaults:
+  - override /hydra/launcher: submitit_slurm
+  - _self_
+
+hydra:
+  launcher:
+    account: ???
+    partition: ???
+    timeout_min: 7200
+    tasks_per_node: ${trainer.devices}  # See https://github.com/Lightning-AI/lightning/issues/2727
+    comment: ${name}

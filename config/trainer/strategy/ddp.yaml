@@ -1,0 +1,5 @@
+_target_: pytorch_lightning.strategies.DDPStrategy
+
+gradient_as_bucket_view: true
+static_graph: true
+find_unused_parameters: false

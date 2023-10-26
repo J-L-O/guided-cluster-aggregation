@@ -1,0 +1,45 @@
+# @package _global_
+defaults:
+  - override /datamodule: gcd
+  - override /datamodule/transforms@datamodule.train_transform: gcd_train
+  - override /datamodule/transforms@datamodule.val_transform: gcd_val
+  - override /lightning_module: gca
+  - override /trainer: train
+  - _self_
+
+name: gcd_cifar100
+
+hydra:
+  mode: MULTIRUN
+
+trainer:
+  max_epochs: 200
+  devices: 1
+  precision: 32
+  strategy:
+    static_graph: false
+    find_unused_parameters: true
+
+lightning_module:
+  num_classes: 100
+  base_k: 5
+  hierarchy_k: [2]
+  hierarchy_schedule: [100]
+  knn_file: ../neighbors/cifar100_gcd_finetuned.npy
+  num_known_classes: 80
+  entropy_weight: 5.0
+  model:
+    backbone:
+      _target_: models.backbones.vit.VITB16Backbone
+      dino_pretrained: false
+      checkpoint_path: ../pretrained/GCD/vit_dino_gcd_cifar100.ckpt
+    backbone_feature_dim: 768
+    class_hierarchy: [1000, 100]
+    heads_per_level: [10, 1]
+  optimizer:
+    lr: 0.0001
+    weight_decay: 0.0001
+
+datamodule:
+  dataset_name: cifar100
+  batch_size: 512

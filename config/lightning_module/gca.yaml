@@ -1,0 +1,14 @@
+_target_: lightning_module.gca.GCAModule
+defaults:
+  - model: classification
+  - optimizer: adam
+  - scheduler: null
+  - _self_
+
+num_classes: ???
+base_k: ???
+hierarchy_k: ???
+hierarchy_schedule: ???
+knn_file: ???
+num_known_classes: ???
+entropy_weight: 5.0

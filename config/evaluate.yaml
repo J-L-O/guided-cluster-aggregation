@@ -1,0 +1,25 @@
+defaults:
+  - _self_
+  - datamodule: gcd
+  - lightning_module: gca
+  - trainer: debug
+  - experiment: null
+  - cluster: null
+  - optional slurm_config: ${lightning_module}_${datamodule}_${cluster}
+
+name: ???
+
+checkpoint_path: null
+save_path: ./evaluation_results/${name}
+
+evaluators:
+    - _target_: util.evaluators.ClusterAccuracyEvaluator
+    - _target_: util.evaluators.KNNEvaluator
+      k_list: [5, 10, 20, 50]
+      k_save: 20
+      metric: euclidean
+      save_path: ${save_path}
+
+hydra:
+  job:
+    chdir: false  # See https://github.com/Lightning-AI/lightning/issues/11300

@@ -1,0 +1,15 @@
+_target_: pytorch_lightning.Trainer
+
+defaults:
+  - strategy: ddp
+  - logger: null
+  - callbacks: null
+  - _self_
+
+max_epochs: ???
+accelerator: gpu
+devices: ???
+precision: ???
+sync_batchnorm: true
+num_sanity_val_steps: 0
+logger: false

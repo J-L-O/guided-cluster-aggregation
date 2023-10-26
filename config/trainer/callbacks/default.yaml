@@ -1,0 +1,4 @@
+- _target_: pytorch_lightning.callbacks.model_checkpoint.ModelCheckpoint
+  save_last: true
+- _target_: pytorch_lightning.callbacks.lr_monitor.LearningRateMonitor
+  logging_interval: epoch

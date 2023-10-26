@@ -1,0 +1,10 @@
+# @package _global_
+hydra:
+  launcher:
+    gres: gpu:${trainer.devices}
+    constraint: ???
+    cpus_per_task: ???
+    mem_gb: ???
+
+datamodule:
+  data_dir: ???

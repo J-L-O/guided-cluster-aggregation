@@ -1,0 +1,16 @@
+_target_: pytorch_lightning.Trainer
+
+defaults:
+  - strategy: ddp
+  - logger: tensorboard
+  - callbacks: default
+  - _self_
+
+max_epochs: ???
+accelerator: gpu
+devices: ???
+precision: ???
+sync_batchnorm: true
+enable_progress_bar: false
+num_sanity_val_steps: 0
+benchmark: true

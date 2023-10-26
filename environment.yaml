@@ -1,0 +1,24 @@
+name: gca
+channels:
+  - pytorch
+  - main
+dependencies:
+  - cudatoolkit=11.3.1
+  - numpy=1.23.5
+  - pandas==1.5.3
+  - pip
+  - python=3.8
+  - pytorch=1.12.1
+  - scikit-learn=1.2.1
+  - scipy=1.9.1
+  - torchvision=0.13.1
+  - faiss-gpu=1.7.2
+  - pip:
+    - hydra-core==1.2.0
+    - hydra-submitit-launcher==1.2.0
+    - pydevd-pycharm==223.6160.21
+    - pytorch-lightning==1.8.3
+    - submitit==1.4.5
+    - timm==0.6.12
+    - torchmetrics==0.11.0
+    - wandb==0.13.6

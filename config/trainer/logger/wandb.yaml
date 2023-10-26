@@ -1,0 +1,6 @@
+_target_: pytorch_lightning.loggers.wandb.WandbLogger
+entity: ???
+project: ???
+log_model: true
+name: ${name}
+resume: allow
